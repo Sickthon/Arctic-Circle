@@ -31,23 +31,23 @@ namespace Arctic_Circle
         {
             this.Start_Button = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.DrawInForm_Checkbox = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.DrawInForm_checkbox = new System.Windows.Forms.CheckBox();
+            this.ProjectedTime_label = new System.Windows.Forms.Label();
             this.timeProjection_button = new System.Windows.Forms.Button();
             this.GetIntervals_button = new System.Windows.Forms.Button();
             this.ContinueRendering_checkbox = new System.Windows.Forms.CheckBox();
-            this.SaveImageButton = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.SaveImage_button = new System.Windows.Forms.Button();
+            this.PossibilitiesCount_label = new System.Windows.Forms.Label();
+            this.Possibilities_label = new System.Windows.Forms.Label();
+            this.PauseInterval_label = new System.Windows.Forms.Label();
+            this.PauseInterval_textBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.RectangleSize_label = new System.Windows.Forms.Label();
+            this.RectangleSize_textBox = new System.Windows.Forms.TextBox();
+            this.EndSize_Label = new System.Windows.Forms.Label();
+            this.StartSize_textBox = new System.Windows.Forms.TextBox();
+            this.EndSize_textBox = new System.Windows.Forms.TextBox();
+            this.StartSize_label = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,50 +64,50 @@ namespace Arctic_Circle
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel1.Controls.Add(this.DrawInForm_Checkbox);
-            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.DrawInForm_checkbox);
+            this.panel1.Controls.Add(this.ProjectedTime_label);
             this.panel1.Controls.Add(this.timeProjection_button);
             this.panel1.Controls.Add(this.GetIntervals_button);
             this.panel1.Controls.Add(this.ContinueRendering_checkbox);
-            this.panel1.Controls.Add(this.SaveImageButton);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.SaveImage_button);
+            this.panel1.Controls.Add(this.PossibilitiesCount_label);
+            this.panel1.Controls.Add(this.Possibilities_label);
+            this.panel1.Controls.Add(this.PauseInterval_label);
+            this.panel1.Controls.Add(this.PauseInterval_textBox);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.RectangleSize_label);
+            this.panel1.Controls.Add(this.RectangleSize_textBox);
+            this.panel1.Controls.Add(this.EndSize_Label);
+            this.panel1.Controls.Add(this.StartSize_textBox);
+            this.panel1.Controls.Add(this.EndSize_textBox);
+            this.panel1.Controls.Add(this.StartSize_label);
             this.panel1.Controls.Add(this.Start_Button);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(337, 334);
             this.panel1.TabIndex = 1;
             // 
-            // DrawInForm_Checkbox
+            // DrawInForm_checkbox
             // 
-            this.DrawInForm_Checkbox.AutoSize = true;
-            this.DrawInForm_Checkbox.Checked = true;
-            this.DrawInForm_Checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.DrawInForm_Checkbox.Location = new System.Drawing.Point(6, 240);
-            this.DrawInForm_Checkbox.Name = "DrawInForm_Checkbox";
-            this.DrawInForm_Checkbox.Size = new System.Drawing.Size(139, 21);
-            this.DrawInForm_Checkbox.TabIndex = 17;
-            this.DrawInForm_Checkbox.Text = "Draw in this Form";
-            this.DrawInForm_Checkbox.UseVisualStyleBackColor = true;
-            this.DrawInForm_Checkbox.CheckedChanged += new System.EventHandler(this.DrawInForm_Checkbox_CheckedChanged);
+            this.DrawInForm_checkbox.AutoSize = true;
+            this.DrawInForm_checkbox.Checked = true;
+            this.DrawInForm_checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DrawInForm_checkbox.Location = new System.Drawing.Point(6, 240);
+            this.DrawInForm_checkbox.Name = "DrawInForm_checkbox";
+            this.DrawInForm_checkbox.Size = new System.Drawing.Size(139, 21);
+            this.DrawInForm_checkbox.TabIndex = 17;
+            this.DrawInForm_checkbox.Text = "Draw in this Form";
+            this.DrawInForm_checkbox.UseVisualStyleBackColor = true;
+            this.DrawInForm_checkbox.CheckedChanged += new System.EventHandler(this.DrawInForm_Checkbox_CheckedChanged);
             // 
-            // label8
+            // ProjectedTime_label
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(152, 272);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(16, 17);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "0";
+            this.ProjectedTime_label.AutoSize = true;
+            this.ProjectedTime_label.Location = new System.Drawing.Point(152, 272);
+            this.ProjectedTime_label.Name = "ProjectedTime_label";
+            this.ProjectedTime_label.Size = new System.Drawing.Size(16, 17);
+            this.ProjectedTime_label.TabIndex = 16;
+            this.ProjectedTime_label.Text = "0";
             // 
             // timeProjection_button
             // 
@@ -140,52 +140,52 @@ namespace Arctic_Circle
             this.ContinueRendering_checkbox.UseVisualStyleBackColor = true;
             this.ContinueRendering_checkbox.CheckedChanged += new System.EventHandler(this.ContinueRendering_checkbox_CheckedChanged);
             // 
-            // SaveImageButton
+            // SaveImage_button
             // 
-            this.SaveImageButton.Location = new System.Drawing.Point(6, 171);
-            this.SaveImageButton.Name = "SaveImageButton";
-            this.SaveImageButton.Size = new System.Drawing.Size(106, 26);
-            this.SaveImageButton.TabIndex = 12;
-            this.SaveImageButton.Text = "Save Image";
-            this.SaveImageButton.UseVisualStyleBackColor = true;
-            this.SaveImageButton.Click += new System.EventHandler(this.SaveImageButton_Click);
+            this.SaveImage_button.Location = new System.Drawing.Point(6, 171);
+            this.SaveImage_button.Name = "SaveImage_button";
+            this.SaveImage_button.Size = new System.Drawing.Size(106, 26);
+            this.SaveImage_button.TabIndex = 12;
+            this.SaveImage_button.Text = "Save Image";
+            this.SaveImage_button.UseVisualStyleBackColor = true;
+            this.SaveImage_button.Click += new System.EventHandler(this.SaveImageButton_Click);
             // 
-            // label7
+            // PossibilitiesCount_label
             // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(115, 145);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 17);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "2^0";
+            this.PossibilitiesCount_label.AutoSize = true;
+            this.PossibilitiesCount_label.ForeColor = System.Drawing.Color.White;
+            this.PossibilitiesCount_label.Location = new System.Drawing.Point(115, 145);
+            this.PossibilitiesCount_label.Name = "PossibilitiesCount_label";
+            this.PossibilitiesCount_label.Size = new System.Drawing.Size(31, 17);
+            this.PossibilitiesCount_label.TabIndex = 11;
+            this.PossibilitiesCount_label.Text = "2^0";
             // 
-            // label6
+            // Possibilities_label
             // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 145);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 17);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Possibilities:";
+            this.Possibilities_label.AutoSize = true;
+            this.Possibilities_label.ForeColor = System.Drawing.Color.White;
+            this.Possibilities_label.Location = new System.Drawing.Point(3, 145);
+            this.Possibilities_label.Name = "Possibilities_label";
+            this.Possibilities_label.Size = new System.Drawing.Size(85, 17);
+            this.Possibilities_label.TabIndex = 10;
+            this.Possibilities_label.Text = "Possibilities:";
             // 
-            // label4
+            // PauseInterval_label
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 111);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Pause Interval";
+            this.PauseInterval_label.AutoSize = true;
+            this.PauseInterval_label.Location = new System.Drawing.Point(3, 111);
+            this.PauseInterval_label.Name = "PauseInterval_label";
+            this.PauseInterval_label.Size = new System.Drawing.Size(98, 17);
+            this.PauseInterval_label.TabIndex = 9;
+            this.PauseInterval_label.Text = "Pause Interval";
             // 
-            // textBox4
+            // PauseInterval_textBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(118, 108);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 8;
-            this.textBox4.Text = "0";
+            this.PauseInterval_textBox.Location = new System.Drawing.Point(118, 108);
+            this.PauseInterval_textBox.Name = "PauseInterval_textBox";
+            this.PauseInterval_textBox.Size = new System.Drawing.Size(100, 22);
+            this.PauseInterval_textBox.TabIndex = 8;
+            this.PauseInterval_textBox.Text = "0";
             // 
             // label5
             // 
@@ -196,56 +196,56 @@ namespace Arctic_Circle
             this.label5.Size = new System.Drawing.Size(0, 17);
             this.label5.TabIndex = 7;
             // 
-            // label3
+            // RectangleSize_label
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Rectangle Size";
+            this.RectangleSize_label.AutoSize = true;
+            this.RectangleSize_label.Location = new System.Drawing.Point(3, 83);
+            this.RectangleSize_label.Name = "RectangleSize_label";
+            this.RectangleSize_label.Size = new System.Drawing.Size(103, 17);
+            this.RectangleSize_label.TabIndex = 6;
+            this.RectangleSize_label.Text = "Rectangle Size";
             // 
-            // textBox3
+            // RectangleSize_textBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(118, 80);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "1";
+            this.RectangleSize_textBox.Location = new System.Drawing.Point(118, 80);
+            this.RectangleSize_textBox.Name = "RectangleSize_textBox";
+            this.RectangleSize_textBox.Size = new System.Drawing.Size(100, 22);
+            this.RectangleSize_textBox.TabIndex = 3;
+            this.RectangleSize_textBox.Text = "1";
             // 
-            // label2
+            // EndSize_Label
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 17);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "End Size";
+            this.EndSize_Label.AutoSize = true;
+            this.EndSize_Label.Location = new System.Drawing.Point(3, 55);
+            this.EndSize_Label.Name = "EndSize_Label";
+            this.EndSize_Label.Size = new System.Drawing.Size(64, 17);
+            this.EndSize_Label.TabIndex = 5;
+            this.EndSize_Label.Text = "End Size";
             // 
-            // textBox1
+            // StartSize_textBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(118, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "1";
+            this.StartSize_textBox.Location = new System.Drawing.Point(118, 26);
+            this.StartSize_textBox.Name = "StartSize_textBox";
+            this.StartSize_textBox.Size = new System.Drawing.Size(100, 22);
+            this.StartSize_textBox.TabIndex = 2;
+            this.StartSize_textBox.Text = "1";
             // 
-            // textBox2
+            // EndSize_textBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(118, 52);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "50";
+            this.EndSize_textBox.Location = new System.Drawing.Point(118, 52);
+            this.EndSize_textBox.Name = "EndSize_textBox";
+            this.EndSize_textBox.Size = new System.Drawing.Size(100, 22);
+            this.EndSize_textBox.TabIndex = 1;
+            this.EndSize_textBox.Text = "50";
             // 
-            // label1
+            // StartSize_label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 17);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Start Size";
+            this.StartSize_label.AutoSize = true;
+            this.StartSize_label.Location = new System.Drawing.Point(3, 29);
+            this.StartSize_label.Name = "StartSize_label";
+            this.StartSize_label.Size = new System.Drawing.Size(69, 17);
+            this.StartSize_label.TabIndex = 4;
+            this.StartSize_label.Text = "Start Size";
             // 
             // MainWindow
             // 
@@ -268,23 +268,23 @@ namespace Arctic_Circle
 
         private System.Windows.Forms.Button Start_Button;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox StartSize_textBox;
+        private System.Windows.Forms.TextBox EndSize_textBox;
+        private System.Windows.Forms.Label RectangleSize_label;
+        private System.Windows.Forms.TextBox RectangleSize_textBox;
+        private System.Windows.Forms.Label EndSize_Label;
+        private System.Windows.Forms.Label StartSize_label;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button SaveImageButton;
+        private System.Windows.Forms.Label PauseInterval_label;
+        private System.Windows.Forms.TextBox PauseInterval_textBox;
+        private System.Windows.Forms.Label PossibilitiesCount_label;
+        private System.Windows.Forms.Label Possibilities_label;
+        private System.Windows.Forms.Button SaveImage_button;
         private System.Windows.Forms.CheckBox ContinueRendering_checkbox;
         private System.Windows.Forms.Button GetIntervals_button;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label ProjectedTime_label;
         private System.Windows.Forms.Button timeProjection_button;
-        private System.Windows.Forms.CheckBox DrawInForm_Checkbox;
+        private System.Windows.Forms.CheckBox DrawInForm_checkbox;
     }
 }
 

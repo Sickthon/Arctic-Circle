@@ -153,15 +153,15 @@ namespace Arctic_Circle
             if (noClear && !firstIteration)
             {
                 startSize = DiamondIterations + 1;
-                DiamondIterations = Convert.ToInt32(textBox2.Text);
+                DiamondIterations = Convert.ToInt32(EndSize_textBox.Text);
             }
             else
             {
                 firstIteration = false;
-                startSize = Convert.ToInt32(textBox1.Text);
-                DiamondIterations = Convert.ToInt32(textBox2.Text);
-                edge_Length = Convert.ToInt32(textBox3.Text);
-                Pause_Interval = Convert.ToInt32(textBox4.Text);
+                startSize = Convert.ToInt32(StartSize_textBox.Text);
+                DiamondIterations = Convert.ToInt32(EndSize_textBox.Text);
+                edge_Length = Convert.ToInt32(RectangleSize_textBox.Text);
+                Pause_Interval = Convert.ToInt32(PauseInterval_textBox.Text);
 
                 for (int i = 0; i < 4; i++)
                 {
@@ -189,7 +189,7 @@ namespace Arctic_Circle
                 var watch = System.Diagnostics.Stopwatch.StartNew();
 
                 label5.Text = String.Format("{0} / {1}", i, DiamondIterations);
-                label7.Text = "2^" + Convert.ToString(PossibilitiesCounter);
+                PossibilitiesCount_label.Text = "2^" + Convert.ToString(PossibilitiesCounter);
                 Application.DoEvents();
                 DrawStart_point = new Point(ClientSize.Width / 2 - Convert.ToInt32(edge_Length),
                     ClientSize.Height / 2 - i * Convert.ToInt32(edge_Length));
@@ -519,11 +519,21 @@ namespace Arctic_Circle
             img.Save(pathString);
         }
 
+        /// <summary>
+        /// Influences noClear variable.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ContinueRendering_checkbox_CheckedChanged(object sender, EventArgs e)
         {
             noClear = !noClear;
         }
 
+        /// <summary>
+        /// Copys measured intervals per increment from timeList to Clipboard.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GetIntervals_button_Click(object sender, EventArgs e)
         {
             StringBuilder Output = new StringBuilder();
@@ -535,9 +545,14 @@ namespace Arctic_Circle
             Clipboard.SetText(Convert.ToString(Output));
         }
 
+        /// <summary>
+        /// Model adjusted to fit the data collected with timeList, more data needed for better results.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timeProjection_button_Click(object sender, EventArgs e)
         {
-            DiamondIterations = Convert.ToInt32(textBox2.Text);
+            DiamondIterations = Convert.ToInt32(EndSize_textBox.Text);
             int ProjectedTime = 0;
             for(int x = 1; x <= DiamondIterations; x++)
             {
@@ -545,13 +560,18 @@ namespace Arctic_Circle
                 ProjectedTime += Convert.ToInt32(0.00070478245138286500 * Math.Pow(x, 2.78491739893229000000));
             }
             TimeSpan t = TimeSpan.FromMilliseconds(Convert.ToDouble(ProjectedTime));
-            label8.Text = string.Format("{0:D2}h:{1:D2}m:{2:D2}s:{3:D3}ms",
+            ProjectedTime_label.Text = string.Format("{0:D2}h:{1:D2}m:{2:D2}s:{3:D3}ms",
                                     t.Hours,
                                     t.Minutes,
                                     t.Seconds,
                                     t.Milliseconds);
         }
 
+        /// <summary>
+        /// Influences DrawInform variable.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DrawInForm_Checkbox_CheckedChanged(object sender, EventArgs e)
         {
             DrawInForm = !DrawInForm;
