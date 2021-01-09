@@ -14,6 +14,10 @@ namespace Arctic_Circle
     public partial class MainWindow : Form
     {
         #region
+        /// <summary>
+        /// You can change the save location for the renderings in the "SaveImageButton_Click" class
+        /// </summary>
+        string pathString; 
         int edge_Length; //Side of each square
         Point[] Directions = new Point[5]; //pointed Lengths of Lines
         List<Point> DiamondPoints = new List<Point>(); //Coordinates of significant verteces
@@ -28,6 +32,7 @@ namespace Arctic_Circle
         Font f = new Font("Times New Roman", 12.0f);
         bool noClear = false;
         bool firstIteration = true;
+        bool DrawInForm = true;
         List<long> timeList = new List<long>();
         Graphics g;
 
@@ -97,8 +102,6 @@ namespace Arctic_Circle
 
             Point DrawStart_point;
 
-
-
             for (int i = startSize; i <= DiamondIterations; i++)
             {
                 var watch = System.Diagnostics.Stopwatch.StartNew();
@@ -113,10 +116,13 @@ namespace Arctic_Circle
                 RectMover();
 
                 RectIterator();
-                /*g.Clear(Color.Black);
-                RectDrawer();*/
+                if (DrawInForm)
+                {
+                    g.Clear(Color.Black);
+                    RectDrawer();
+                }
                 DrawDiamond(i, DrawStart_point);
-                //Thread.Sleep(Pause_Interval);
+                Thread.Sleep(Pause_Interval);
                 watch.Stop();
                 timeList.Add(watch.ElapsedMilliseconds);
             }
@@ -129,7 +135,7 @@ namespace Arctic_Circle
             {
                 for (int q = 0; q < 2; q++)
                 {
-                    //g.DrawLine(p, DrawPosition.X, DrawPosition.Y, DrawPosition.X + Directions[i].X, DrawPosition.Y + Directions[i].Y);
+                    //if (DrawInForm){ g.DrawLine(p, DrawPosition.X, DrawPosition.Y, DrawPosition.X + Directions[i].X, DrawPosition.Y + Directions[i].Y); }
                     DrawPosition = new Point(DrawPosition.X + Directions[i].X, DrawPosition.Y + Directions[i].Y);
                     if ((q == 1 && (i == 0 || i == 3)) || ((i == 1 || i == 3) && q == 0)) { DiamondPoints.Add(DrawPosition); }
                 }
@@ -138,7 +144,7 @@ namespace Arctic_Circle
                 {
                     for (int v = 1; v >= 0; v--)
                     {
-                        //g.DrawLine(p, DrawPosition.X, DrawPosition.Y, DrawPosition.X + Directions[i + v].X, DrawPosition.Y + Directions[i + v].Y);
+                        //if (DrawInForm) { g.DrawLine(p, DrawPosition.X, DrawPosition.Y, DrawPosition.X + Directions[i + v].X, DrawPosition.Y + Directions[i + v].Y); }
                         DrawPosition = new Point(DrawPosition.X + Directions[i + v].X, DrawPosition.Y + Directions[i + v].Y);
                         if (((i == 1 || i == 2) && v == 1) || ((i == 0 || i == 3) && v == 0)) { DiamondPoints.Add(DrawPosition); }
                     }
@@ -148,10 +154,6 @@ namespace Arctic_Circle
             BubbleSort(DiamondPoints);
         }
 
-        /// <summary>
-        /// Oh yeah, fuck this shit, it just sorts my list so that I can use it...
-        /// </summary>
-        /// <param name="Input"></param>
         void QuickSort(List<Point> Input)
         {
             if (Input.Count == 2 || Input.Count == 0) { return; }
@@ -386,7 +388,7 @@ namespace Arctic_Circle
             int size = 2 * DiamondIterations * edge_Length;
             int PositionRelativatorX = (DiamondIterations - 1) * edge_Length - Rects_List[0][0].X;
             int PositionRelativatorY = -Rects_List[0][0].Y;
-            string pathString = String.Format(@"C:\Users\Silvan\01 Arctic Cirle Renderings\{0:dd-MM-yyyy HH-mm}.bmp", DateTime.Now);
+            pathString = String.Format(@"C:\Users\Silvan\01 Arctic Cirle Renderings\{0:dd-MM-yyyy HH-mm}.bmp", DateTime.Now);
 
             Bitmap img = new Bitmap(size, size);
 
@@ -448,6 +450,11 @@ namespace Arctic_Circle
                                     t.Minutes,
                                     t.Seconds,
                                     t.Milliseconds);
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            DrawInForm = !DrawInForm;
         }
     }
 }

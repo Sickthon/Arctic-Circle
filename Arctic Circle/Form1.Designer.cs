@@ -47,6 +47,7 @@ namespace Arctic_Circle
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +64,7 @@ namespace Arctic_Circle
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.checkBox2);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -82,13 +84,13 @@ namespace Arctic_Circle
             this.panel1.Controls.Add(this.StartButton);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(337, 292);
+            this.panel1.Size = new System.Drawing.Size(337, 334);
             this.panel1.TabIndex = 1;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(152, 240);
+            this.label8.Location = new System.Drawing.Point(152, 272);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(16, 17);
             this.label8.TabIndex = 16;
@@ -96,7 +98,7 @@ namespace Arctic_Circle
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(6, 235);
+            this.button2.Location = new System.Drawing.Point(6, 267);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 26);
             this.button2.TabIndex = 15;
@@ -117,7 +119,7 @@ namespace Arctic_Circle
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 267);
+            this.checkBox1.Location = new System.Drawing.Point(6, 299);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(86, 21);
             this.checkBox1.TabIndex = 13;
@@ -232,6 +234,19 @@ namespace Arctic_Circle
             this.label1.TabIndex = 4;
             this.label1.Text = "Start Size";
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(6, 240);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(139, 21);
+            this.checkBox2.TabIndex = 17;
+            this.checkBox2.Text = "Draw in this Form";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -269,6 +284,7 @@ namespace Arctic_Circle
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
 
