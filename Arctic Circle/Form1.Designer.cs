@@ -29,12 +29,13 @@ namespace Arctic_Circle
         /// </summary>
         private void InitializeComponent()
         {
-            this.StartButton = new System.Windows.Forms.Button();
+            this.Start_Button = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.DrawInForm_Checkbox = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.timeProjection_button = new System.Windows.Forms.Button();
+            this.GetIntervals_button = new System.Windows.Forms.Button();
+            this.ContinueRendering_checkbox = new System.Windows.Forms.CheckBox();
             this.SaveImageButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,28 +48,27 @@ namespace Arctic_Circle
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // StartButton
+            // Start_Button
             // 
-            this.StartButton.Location = new System.Drawing.Point(3, 3);
-            this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(75, 23);
-            this.StartButton.TabIndex = 0;
-            this.StartButton.Text = "Start";
-            this.StartButton.UseVisualStyleBackColor = true;
-            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
+            this.Start_Button.Location = new System.Drawing.Point(3, 3);
+            this.Start_Button.Name = "Start_Button";
+            this.Start_Button.Size = new System.Drawing.Size(75, 23);
+            this.Start_Button.TabIndex = 0;
+            this.Start_Button.Text = "Start";
+            this.Start_Button.UseVisualStyleBackColor = true;
+            this.Start_Button.Click += new System.EventHandler(this.Start_button_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel1.Controls.Add(this.checkBox2);
+            this.panel1.Controls.Add(this.DrawInForm_Checkbox);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.timeProjection_button);
+            this.panel1.Controls.Add(this.GetIntervals_button);
+            this.panel1.Controls.Add(this.ContinueRendering_checkbox);
             this.panel1.Controls.Add(this.SaveImageButton);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
@@ -81,11 +81,24 @@ namespace Arctic_Circle
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.StartButton);
+            this.panel1.Controls.Add(this.Start_Button);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(337, 334);
             this.panel1.TabIndex = 1;
+            // 
+            // DrawInForm_Checkbox
+            // 
+            this.DrawInForm_Checkbox.AutoSize = true;
+            this.DrawInForm_Checkbox.Checked = true;
+            this.DrawInForm_Checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DrawInForm_Checkbox.Location = new System.Drawing.Point(6, 240);
+            this.DrawInForm_Checkbox.Name = "DrawInForm_Checkbox";
+            this.DrawInForm_Checkbox.Size = new System.Drawing.Size(139, 21);
+            this.DrawInForm_Checkbox.TabIndex = 17;
+            this.DrawInForm_Checkbox.Text = "Draw in this Form";
+            this.DrawInForm_Checkbox.UseVisualStyleBackColor = true;
+            this.DrawInForm_Checkbox.CheckedChanged += new System.EventHandler(this.DrawInForm_Checkbox_CheckedChanged);
             // 
             // label8
             // 
@@ -96,36 +109,36 @@ namespace Arctic_Circle
             this.label8.TabIndex = 16;
             this.label8.Text = "0";
             // 
-            // button2
+            // timeProjection_button
             // 
-            this.button2.Location = new System.Drawing.Point(6, 267);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(140, 26);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Projected Time";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.timeProjection_button.Location = new System.Drawing.Point(6, 267);
+            this.timeProjection_button.Name = "timeProjection_button";
+            this.timeProjection_button.Size = new System.Drawing.Size(140, 26);
+            this.timeProjection_button.TabIndex = 15;
+            this.timeProjection_button.Text = "Projected Time";
+            this.timeProjection_button.UseVisualStyleBackColor = true;
+            this.timeProjection_button.Click += new System.EventHandler(this.timeProjection_button_Click);
             // 
-            // button1
+            // GetIntervals_button
             // 
-            this.button1.Location = new System.Drawing.Point(6, 203);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 26);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Get Intervals";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.GetIntervals_button.Location = new System.Drawing.Point(6, 203);
+            this.GetIntervals_button.Name = "GetIntervals_button";
+            this.GetIntervals_button.Size = new System.Drawing.Size(106, 26);
+            this.GetIntervals_button.TabIndex = 14;
+            this.GetIntervals_button.Text = "Get Intervals";
+            this.GetIntervals_button.UseVisualStyleBackColor = true;
+            this.GetIntervals_button.Click += new System.EventHandler(this.GetIntervals_button_Click);
             // 
-            // checkBox1
+            // ContinueRendering_checkbox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 299);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(86, 21);
-            this.checkBox1.TabIndex = 13;
-            this.checkBox1.Text = "Continue";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.ContinueRendering_checkbox.AutoSize = true;
+            this.ContinueRendering_checkbox.Location = new System.Drawing.Point(6, 299);
+            this.ContinueRendering_checkbox.Name = "ContinueRendering_checkbox";
+            this.ContinueRendering_checkbox.Size = new System.Drawing.Size(86, 21);
+            this.ContinueRendering_checkbox.TabIndex = 13;
+            this.ContinueRendering_checkbox.Text = "Continue";
+            this.ContinueRendering_checkbox.UseVisualStyleBackColor = true;
+            this.ContinueRendering_checkbox.CheckedChanged += new System.EventHandler(this.ContinueRendering_checkbox_CheckedChanged);
             // 
             // SaveImageButton
             // 
@@ -234,19 +247,6 @@ namespace Arctic_Circle
             this.label1.TabIndex = 4;
             this.label1.Text = "Start Size";
             // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(6, 240);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(139, 21);
-            this.checkBox2.TabIndex = 17;
-            this.checkBox2.Text = "Draw in this Form";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -266,7 +266,7 @@ namespace Arctic_Circle
 
         #endregion
 
-        private System.Windows.Forms.Button StartButton;
+        private System.Windows.Forms.Button Start_Button;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
@@ -280,11 +280,11 @@ namespace Arctic_Circle
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button SaveImageButton;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox ContinueRendering_checkbox;
+        private System.Windows.Forms.Button GetIntervals_button;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Button timeProjection_button;
+        private System.Windows.Forms.CheckBox DrawInForm_Checkbox;
     }
 }
 

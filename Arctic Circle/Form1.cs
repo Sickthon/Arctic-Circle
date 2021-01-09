@@ -15,27 +15,98 @@ namespace Arctic_Circle
     {
         #region
         /// <summary>
-        /// You can change the save location for the renderings in the "SaveImageButton_Click" class
+        /// You can change the save location for the renderings in the "SaveImageButton_Click" class.
         /// </summary>
-        string pathString; 
-        int edge_Length; //Side of each square
-        Point[] Directions = new Point[5]; //pointed Lengths of Lines
-        List<Point> DiamondPoints = new List<Point>(); //Coordinates of significant verteces
-        int DiamondIterations; //Final Size of Diamond
-        int Pause_Interval; //Pause between each increment
+        string pathString;
+
+        /// <summary>
+        /// Length in pixels of the shorter part of the Rectangle.
+        /// </summary>
+        int edge_Length;
+
+        /// <summary>
+        /// This Array contains 4 different unit vectors i.e. the directions used to render the diamond.
+        /// </summary>
+        Point[] Directions = new Point[5];
+
+        /// <summary>
+        /// List of the Coordinates of significant verteces of the diamond sorted by Y-Value.
+        /// </summary>
+        List<Point> DiamondPoints = new List<Point>();
+
+        /// <summary>
+        /// Final size of the diamond, the diagonals will be of the size 2 * DiamondIterations.
+        /// </summary>
+        int DiamondIterations;
+
+        /// <summary>
+        /// Pause[ms] between each increment.
+        /// </summary>
+        int Pause_Interval;
+
+        /// <summary>
+        /// The start size of the diamond, values apart from 1 don't make much sense.
+        /// </summary>
         int startSize;
-        long PossibilitiesCounter = 0; // lb(possibilities)
-        List<List<Rectangle>> Rects_List = new List<List<Rectangle>>(); //List containing all Rectangles
+
+        /// <summary>
+        /// This counts logarithmically with base 2 the amount of different possible diamonds at the current size.
+        /// </summary>
+        long PossibilitiesCounter = 0;
+
+        /// <summary>
+        /// This list contains all the Rectangles. They are sorted by their y-value into different lists.
+        /// </summary>
+        List<List<Rectangle>> Rects_List = new List<List<Rectangle>>();
+
+        /// <summary>
+        /// The list contains for each Rectangle in Rects_List at the same position the corresponding unit vector for its movement.
+        /// </summary>
         List<List<Point>> MovementDirections_List = new List<List<Point>>(); //List of pointed unit vectors
+
+        /// <summary>
+        /// A new Random instance used to decide how to fill free 2x2 fields.
+        /// </summary>
         Random r = new Random();
+
+        /// <summary>
+        /// A new Pen instance used to draw the arrows of the movement direction on each Rectangle. This doesn't make sense if the rectangle's size is just two pixels.
+        /// </summary>
         Pen p = new Pen(Brushes.White);
+
+        /// <summary>
+        /// A new Font instance used to draw the arrows of the movement direction on each Rectangle. This doesn't make sense if the rectangle's size is just two pixels.
+        /// </summary>
         Font f = new Font("Times New Roman", 12.0f);
+
+        /// <summary>
+        /// Decides whether a new rendering is started or if the previous one is continued.
+        /// </summary>
         bool noClear = false;
+
+        /// <summary>
+        /// Continuing a previous rendering is only possible if there was a previous one.
+        /// </summary>
         bool firstIteration = true;
+
+        /// <summary>
+        /// Decides whether the rendering should be drawn in the form after each iteration.
+        /// </summary>
         bool DrawInForm = true;
+
+        /// <summary>
+        /// I used this to save the time used for each increment in order to create the duration prediction function.
+        /// </summary>
         List<long> timeList = new List<long>();
+
+        /// <summary>
+        /// This Graphics instance is used to draw into the form.
+        /// </summary>
         Graphics g;
 
+        /// <summary>
+        /// A Dictionary used to draw the arrows of the movement direction on each Rectangle. This doesn't make sense if the rectangle's size is just two pixels.
+        /// </summary>
         Dictionary<Point, string> RectSymbols_dict = new Dictionary<Point, string>()
         {
             { new Point(1, 0), "→" },
@@ -44,6 +115,9 @@ namespace Arctic_Circle
             { new Point(0, -1), "↑" }
         };
 
+        /// <summary>
+        /// A Dictionary used to convert the orientation of the rectangle to its corresponding colour when drawin in the form.
+        /// </summary>
         Dictionary<Point, Brush> RectBrushes_dict = new Dictionary<Point, Brush>()
         {
             { new Point(1, 0), Brushes.LawnGreen },
@@ -52,6 +126,9 @@ namespace Arctic_Circle
             { new Point(0, -1),Brushes.Red }
         };
 
+        /// <summary>
+        /// A Dictionary used to convert the orientation of the rectangle to its corresponding colour when converting to bitmap.
+        /// </summary>
         Dictionary<Point, Color> RectColours_dict = new Dictionary<Point, Color>()
         {
             { new Point(1, 0), Color.LawnGreen },
@@ -66,7 +143,12 @@ namespace Arctic_Circle
             InitializeComponent();
         }
 
-        private void StartButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Main Function that is called for each new rendering.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Start_button_Click(object sender, EventArgs e)
         {
             if (noClear && !firstIteration)
             {
@@ -128,6 +210,11 @@ namespace Arctic_Circle
             }
         }
 
+        /// <summary>
+        /// Function that generates the relevant Diamond Points. Could possibly draw the diamond but it's not needed as the rectangles fill the diamond.
+        /// </summary>
+        /// <param name="size"></param>
+        /// <param name="DrawPosition"></param>
         void DrawDiamond(int size, Point DrawPosition)
         {
             DiamondPoints.Clear();
@@ -154,6 +241,10 @@ namespace Arctic_Circle
             BubbleSort(DiamondPoints);
         }
 
+        /// <summary>
+        /// Sorts the DiamondPoins according to their y-value
+        /// </summary>
+        /// <param name="Input"></param>
         void QuickSort(List<Point> Input)
         {
             if (Input.Count == 2 || Input.Count == 0) { return; }
@@ -213,25 +304,17 @@ namespace Arctic_Circle
             Input.AddRange(b);
             Input.AddRange(p);
             Input.AddRange(c);
-
-            /*for (int u = 0; u < Input.Count; u++)
-            {
-                for (int v = 1; v < Input.Count; v++)
-                {
-                    if (Input[v].Y < Input[v - 1].Y)
-                    {
-                        Input.Insert(v - 1, Input[v]);
-                        Input.RemoveAt(v + 1);
-                    }
-                }
-            }*/
         }
 
+        /// <summary>
+        /// Sorts the the DiamondPoints of the same y-value according to their x-value
+        /// </summary>
+        /// <param name="Input"></param>
         void BubbleSort(List<Point> Input)
         {
-            for (int v = 1; v < Input.Count; v++)
+            for (int v = 1; v < Input.Count - 1; v+=2)
             {
-                if (Input[v].X < Input[v - 1].X && Input[v].Y == Input[v - 1].Y)
+                if (Input[v].X < Input[v - 1].X)
                 {
                     Input.Insert(v - 1, Input[v]);
                     Input.RemoveAt(v + 1);
@@ -239,6 +322,9 @@ namespace Arctic_Circle
             }
         }
 
+        /// <summary>
+        /// Draws all Rectangles onto the form.
+        /// </summary>
         void RectDrawer()
         {
             for (int i = 0; i < Rects_List.Count; i++)
@@ -252,7 +338,7 @@ namespace Arctic_Circle
         }
 
         /// <summary>
-        /// Draws all Rectangles
+        /// Checks the diamond for free 2x2 fields.
         /// </summary>
         /// <param name="StartPosition"></param>
         /// <param name="g"></param>
@@ -272,6 +358,12 @@ namespace Arctic_Circle
             }
         }
 
+        /// <summary>
+        /// Sub-method of RectIterator.
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="v"></param>
+        /// <param name="isFree"></param>
         void RectIteratorHelper(int u, int v, ref bool isFree)
         {
             for (int x = 0; x < 2; x++)
@@ -306,7 +398,7 @@ namespace Arctic_Circle
         }
 
         /// <summary>
-        /// Gets Called for each 2x2 field detected
+        /// Fills each free 2x2 field with a pair of rectangles.
         /// </summary>
         /// <param name="Position"></param>
         void newBlock(Point Position, int v)
@@ -330,6 +422,9 @@ namespace Arctic_Circle
             }
         }
 
+        /// <summary>
+        /// Moves the Rectangles according to the direction in MovementDirections_List.
+        /// </summary>
         void RectMover()
         {
             bool isNotIntersecting = true;
@@ -383,6 +478,11 @@ namespace Arctic_Circle
             MovementDirections_List = Helper2.ToArray().ToList();
         }
 
+        /// <summary>
+        /// Renders the image to a bpm (or whathever file format you use in pathString).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveImageButton_Click(object sender, EventArgs e)
         {
             int size = 2 * DiamondIterations * edge_Length;
@@ -419,12 +519,12 @@ namespace Arctic_Circle
             img.Save(pathString);
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void ContinueRendering_checkbox_CheckedChanged(object sender, EventArgs e)
         {
             noClear = !noClear;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void GetIntervals_button_Click(object sender, EventArgs e)
         {
             StringBuilder Output = new StringBuilder();
             Output.Append("Iteration\tTime used [ms]\n");
@@ -435,7 +535,7 @@ namespace Arctic_Circle
             Clipboard.SetText(Convert.ToString(Output));
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void timeProjection_button_Click(object sender, EventArgs e)
         {
             DiamondIterations = Convert.ToInt32(textBox2.Text);
             int ProjectedTime = 0;
@@ -452,7 +552,7 @@ namespace Arctic_Circle
                                     t.Milliseconds);
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        private void DrawInForm_Checkbox_CheckedChanged(object sender, EventArgs e)
         {
             DrawInForm = !DrawInForm;
         }
