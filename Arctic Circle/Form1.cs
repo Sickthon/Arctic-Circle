@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Numerics;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using System.Windows.Media.Imaging;
 
 namespace Arctic_Circle
 {
@@ -188,7 +185,7 @@ namespace Arctic_Circle
             {
                 var watch = System.Diagnostics.Stopwatch.StartNew();
 
-                label5.Text = String.Format("{0} / {1}", i, DiamondIterations);
+                Counter_label.Text = String.Format("{0} / {1}", i, DiamondIterations);
                 PossibilitiesCount_label.Text = "2^" + Convert.ToString(PossibilitiesCounter);
                 Application.DoEvents();
                 DrawStart_point = new Point(ClientSize.Width / 2 - Convert.ToInt32(edge_Length),
@@ -488,7 +485,7 @@ namespace Arctic_Circle
             int size = 2 * DiamondIterations * edge_Length;
             int PositionRelativatorX = (DiamondIterations - 1) * edge_Length - Rects_List[0][0].X;
             int PositionRelativatorY = -Rects_List[0][0].Y;
-            pathString = String.Format(@"C:\Users\Silvan\01 Arctic Cirle Renderings\{0:dd-MM-yyyy HH-mm}.bmp", DateTime.Now);
+            pathString = SaveLocation_textbox.Text + String.Format("{0:dd-MM-yyyy HH-mm}.bmp", DateTime.Now);
 
             Bitmap img = new Bitmap(size, size);
 

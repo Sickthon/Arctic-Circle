@@ -31,6 +31,8 @@ namespace Arctic_Circle
         {
             this.Start_Button = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SaveLocation_label = new System.Windows.Forms.Label();
+            this.SaveLocation_textbox = new System.Windows.Forms.TextBox();
             this.DrawInForm_checkbox = new System.Windows.Forms.CheckBox();
             this.ProjectedTime_label = new System.Windows.Forms.Label();
             this.timeProjection_button = new System.Windows.Forms.Button();
@@ -41,7 +43,7 @@ namespace Arctic_Circle
             this.Possibilities_label = new System.Windows.Forms.Label();
             this.PauseInterval_label = new System.Windows.Forms.Label();
             this.PauseInterval_textBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.Counter_label = new System.Windows.Forms.Label();
             this.RectangleSize_label = new System.Windows.Forms.Label();
             this.RectangleSize_textBox = new System.Windows.Forms.TextBox();
             this.EndSize_Label = new System.Windows.Forms.Label();
@@ -55,7 +57,7 @@ namespace Arctic_Circle
             // 
             this.Start_Button.Location = new System.Drawing.Point(3, 3);
             this.Start_Button.Name = "Start_Button";
-            this.Start_Button.Size = new System.Drawing.Size(75, 23);
+            this.Start_Button.Size = new System.Drawing.Size(118, 23);
             this.Start_Button.TabIndex = 0;
             this.Start_Button.Text = "Start";
             this.Start_Button.UseVisualStyleBackColor = true;
@@ -64,6 +66,8 @@ namespace Arctic_Circle
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.SaveLocation_label);
+            this.panel1.Controls.Add(this.SaveLocation_textbox);
             this.panel1.Controls.Add(this.DrawInForm_checkbox);
             this.panel1.Controls.Add(this.ProjectedTime_label);
             this.panel1.Controls.Add(this.timeProjection_button);
@@ -74,7 +78,7 @@ namespace Arctic_Circle
             this.panel1.Controls.Add(this.Possibilities_label);
             this.panel1.Controls.Add(this.PauseInterval_label);
             this.panel1.Controls.Add(this.PauseInterval_textBox);
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.Counter_label);
             this.panel1.Controls.Add(this.RectangleSize_label);
             this.panel1.Controls.Add(this.RectangleSize_textBox);
             this.panel1.Controls.Add(this.EndSize_Label);
@@ -84,15 +88,34 @@ namespace Arctic_Circle
             this.panel1.Controls.Add(this.Start_Button);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(337, 334);
+            this.panel1.Size = new System.Drawing.Size(390, 355);
             this.panel1.TabIndex = 1;
+            // 
+            // SaveLocation_label
+            // 
+            this.SaveLocation_label.AutoSize = true;
+            this.SaveLocation_label.Location = new System.Drawing.Point(3, 140);
+            this.SaveLocation_label.Name = "SaveLocation_label";
+            this.SaveLocation_label.Size = new System.Drawing.Size(98, 17);
+            this.SaveLocation_label.TabIndex = 19;
+            this.SaveLocation_label.Text = "Save Location";
+            // 
+            // SaveLocation_textbox
+            // 
+            this.SaveLocation_textbox.Location = new System.Drawing.Point(153, 140);
+            this.SaveLocation_textbox.Multiline = true;
+            this.SaveLocation_textbox.Name = "SaveLocation_textbox";
+            this.SaveLocation_textbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.SaveLocation_textbox.Size = new System.Drawing.Size(231, 54);
+            this.SaveLocation_textbox.TabIndex = 18;
+            this.SaveLocation_textbox.Text = "C:\\Users\\Silvan\\01 Arctic Cirle Renderings\\";
             // 
             // DrawInForm_checkbox
             // 
             this.DrawInForm_checkbox.AutoSize = true;
             this.DrawInForm_checkbox.Checked = true;
             this.DrawInForm_checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.DrawInForm_checkbox.Location = new System.Drawing.Point(6, 240);
+            this.DrawInForm_checkbox.Location = new System.Drawing.Point(153, 5);
             this.DrawInForm_checkbox.Name = "DrawInForm_checkbox";
             this.DrawInForm_checkbox.Size = new System.Drawing.Size(139, 21);
             this.DrawInForm_checkbox.TabIndex = 17;
@@ -103,7 +126,7 @@ namespace Arctic_Circle
             // ProjectedTime_label
             // 
             this.ProjectedTime_label.AutoSize = true;
-            this.ProjectedTime_label.Location = new System.Drawing.Point(152, 272);
+            this.ProjectedTime_label.Location = new System.Drawing.Point(150, 256);
             this.ProjectedTime_label.Name = "ProjectedTime_label";
             this.ProjectedTime_label.Size = new System.Drawing.Size(16, 17);
             this.ProjectedTime_label.TabIndex = 16;
@@ -111,9 +134,9 @@ namespace Arctic_Circle
             // 
             // timeProjection_button
             // 
-            this.timeProjection_button.Location = new System.Drawing.Point(6, 267);
+            this.timeProjection_button.Location = new System.Drawing.Point(6, 251);
             this.timeProjection_button.Name = "timeProjection_button";
-            this.timeProjection_button.Size = new System.Drawing.Size(140, 26);
+            this.timeProjection_button.Size = new System.Drawing.Size(115, 26);
             this.timeProjection_button.TabIndex = 15;
             this.timeProjection_button.Text = "Projected Time";
             this.timeProjection_button.UseVisualStyleBackColor = true;
@@ -121,9 +144,9 @@ namespace Arctic_Circle
             // 
             // GetIntervals_button
             // 
-            this.GetIntervals_button.Location = new System.Drawing.Point(6, 203);
+            this.GetIntervals_button.Location = new System.Drawing.Point(6, 219);
             this.GetIntervals_button.Name = "GetIntervals_button";
-            this.GetIntervals_button.Size = new System.Drawing.Size(106, 26);
+            this.GetIntervals_button.Size = new System.Drawing.Size(115, 26);
             this.GetIntervals_button.TabIndex = 14;
             this.GetIntervals_button.Text = "Get Intervals";
             this.GetIntervals_button.UseVisualStyleBackColor = true;
@@ -132,7 +155,7 @@ namespace Arctic_Circle
             // ContinueRendering_checkbox
             // 
             this.ContinueRendering_checkbox.AutoSize = true;
-            this.ContinueRendering_checkbox.Location = new System.Drawing.Point(6, 299);
+            this.ContinueRendering_checkbox.Location = new System.Drawing.Point(298, 5);
             this.ContinueRendering_checkbox.Name = "ContinueRendering_checkbox";
             this.ContinueRendering_checkbox.Size = new System.Drawing.Size(86, 21);
             this.ContinueRendering_checkbox.TabIndex = 13;
@@ -142,9 +165,9 @@ namespace Arctic_Circle
             // 
             // SaveImage_button
             // 
-            this.SaveImage_button.Location = new System.Drawing.Point(6, 171);
+            this.SaveImage_button.Location = new System.Drawing.Point(6, 168);
             this.SaveImage_button.Name = "SaveImage_button";
-            this.SaveImage_button.Size = new System.Drawing.Size(106, 26);
+            this.SaveImage_button.Size = new System.Drawing.Size(118, 26);
             this.SaveImage_button.TabIndex = 12;
             this.SaveImage_button.Text = "Save Image";
             this.SaveImage_button.UseVisualStyleBackColor = true;
@@ -154,7 +177,7 @@ namespace Arctic_Circle
             // 
             this.PossibilitiesCount_label.AutoSize = true;
             this.PossibilitiesCount_label.ForeColor = System.Drawing.Color.White;
-            this.PossibilitiesCount_label.Location = new System.Drawing.Point(115, 145);
+            this.PossibilitiesCount_label.Location = new System.Drawing.Point(147, 197);
             this.PossibilitiesCount_label.Name = "PossibilitiesCount_label";
             this.PossibilitiesCount_label.Size = new System.Drawing.Size(31, 17);
             this.PossibilitiesCount_label.TabIndex = 11;
@@ -164,7 +187,7 @@ namespace Arctic_Circle
             // 
             this.Possibilities_label.AutoSize = true;
             this.Possibilities_label.ForeColor = System.Drawing.Color.White;
-            this.Possibilities_label.Location = new System.Drawing.Point(3, 145);
+            this.Possibilities_label.Location = new System.Drawing.Point(8, 197);
             this.Possibilities_label.Name = "Possibilities_label";
             this.Possibilities_label.Size = new System.Drawing.Size(85, 17);
             this.Possibilities_label.TabIndex = 10;
@@ -173,7 +196,7 @@ namespace Arctic_Circle
             // PauseInterval_label
             // 
             this.PauseInterval_label.AutoSize = true;
-            this.PauseInterval_label.Location = new System.Drawing.Point(3, 111);
+            this.PauseInterval_label.Location = new System.Drawing.Point(3, 108);
             this.PauseInterval_label.Name = "PauseInterval_label";
             this.PauseInterval_label.Size = new System.Drawing.Size(98, 17);
             this.PauseInterval_label.TabIndex = 9;
@@ -181,20 +204,21 @@ namespace Arctic_Circle
             // 
             // PauseInterval_textBox
             // 
-            this.PauseInterval_textBox.Location = new System.Drawing.Point(118, 108);
+            this.PauseInterval_textBox.Location = new System.Drawing.Point(153, 108);
             this.PauseInterval_textBox.Name = "PauseInterval_textBox";
             this.PauseInterval_textBox.Size = new System.Drawing.Size(100, 22);
             this.PauseInterval_textBox.TabIndex = 8;
             this.PauseInterval_textBox.Text = "0";
             // 
-            // label5
+            // Counter_label
             // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 128);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 17);
-            this.label5.TabIndex = 7;
+            this.Counter_label.AutoSize = true;
+            this.Counter_label.ForeColor = System.Drawing.Color.White;
+            this.Counter_label.Location = new System.Drawing.Point(268, 31);
+            this.Counter_label.Name = "Counter_label";
+            this.Counter_label.Size = new System.Drawing.Size(16, 17);
+            this.Counter_label.TabIndex = 7;
+            this.Counter_label.Text = "0";
             // 
             // RectangleSize_label
             // 
@@ -207,7 +231,7 @@ namespace Arctic_Circle
             // 
             // RectangleSize_textBox
             // 
-            this.RectangleSize_textBox.Location = new System.Drawing.Point(118, 80);
+            this.RectangleSize_textBox.Location = new System.Drawing.Point(153, 80);
             this.RectangleSize_textBox.Name = "RectangleSize_textBox";
             this.RectangleSize_textBox.Size = new System.Drawing.Size(100, 22);
             this.RectangleSize_textBox.TabIndex = 3;
@@ -224,7 +248,7 @@ namespace Arctic_Circle
             // 
             // StartSize_textBox
             // 
-            this.StartSize_textBox.Location = new System.Drawing.Point(118, 26);
+            this.StartSize_textBox.Location = new System.Drawing.Point(153, 26);
             this.StartSize_textBox.Name = "StartSize_textBox";
             this.StartSize_textBox.Size = new System.Drawing.Size(100, 22);
             this.StartSize_textBox.TabIndex = 2;
@@ -232,7 +256,7 @@ namespace Arctic_Circle
             // 
             // EndSize_textBox
             // 
-            this.EndSize_textBox.Location = new System.Drawing.Point(118, 52);
+            this.EndSize_textBox.Location = new System.Drawing.Point(153, 52);
             this.EndSize_textBox.Name = "EndSize_textBox";
             this.EndSize_textBox.Size = new System.Drawing.Size(100, 22);
             this.EndSize_textBox.TabIndex = 1;
@@ -274,7 +298,7 @@ namespace Arctic_Circle
         private System.Windows.Forms.TextBox RectangleSize_textBox;
         private System.Windows.Forms.Label EndSize_Label;
         private System.Windows.Forms.Label StartSize_label;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label Counter_label;
         private System.Windows.Forms.Label PauseInterval_label;
         private System.Windows.Forms.TextBox PauseInterval_textBox;
         private System.Windows.Forms.Label PossibilitiesCount_label;
@@ -285,6 +309,8 @@ namespace Arctic_Circle
         private System.Windows.Forms.Label ProjectedTime_label;
         private System.Windows.Forms.Button timeProjection_button;
         private System.Windows.Forms.CheckBox DrawInForm_checkbox;
+        private System.Windows.Forms.Label SaveLocation_label;
+        private System.Windows.Forms.TextBox SaveLocation_textbox;
     }
 }
 
